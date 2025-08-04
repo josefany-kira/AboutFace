@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AboutFace - Loja Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #333;
+      padding: 10px;
+    }
+
+    header {
+      background-color: #ff6600;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      margin: 20px 0 10px;
+      color: #ff6600;
+      font-size: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .produto {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .produto:hover {
+      transform: scale(1.02);
+    }
+
+    .produto img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .produto p {
+      margin: 6px 0;
+      font-size: 14px;
+    }
+
+    .botao-comprar {
+      background-color: #ff6600;
+      color: white;
+      padding: 8px 14px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 13px;
+      width: 100%;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .botao-comprar:hover {
+      background-color: #e65c00;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 30px;
+      padding: 10px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🛍️ AboutFace - Loja Online</header>
+
+  <div class="section">
+    <h2>🧴 Cosméticos</h2>
+    <div class="produtos">
+      <!-- Cosméticos 1 a 10 -->
+      <script>
+        const cosmeticos = [
+          ["Perfume Floral", 2500],
+          ["Creme Hidratante", 3200],
+          ["Sabonete Facial", 1500],
+          ["Óleo Corporal", 1800],
+          ["Máscara Facial", 2000],
+          ["Desodorante", 1300],
+          ["Gloss Labial", 1100],
+          ["Shampoo Herbal", 2700],
+          ["Condicionador", 2600],
+          ["Batom Vermelho", 3000]
+        ];
+        cosmeticos.forEach((item, index) => {
+          document.write(`
+            <div class="produto">
+              <img src="https://via.placeholder.com/150x100?text=Cosmético+${index+1}" alt="${item[0]}">
+              <p>${item[0]}</p>
+              <p>${item[1]} Kz</p>
+              <a class="botao-comprar" href="https://wa.me/244974928961?text=Olá!%20Quero%20comprar%20o%20produto:%20${encodeURIComponent(item[0])}" target="_blank">Comprar</a>
+            </div>
+          `);
+        });
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👕 Vestuário</h2>
+    <div class="produtos">
+      <!-- Vestuário 1 a 10 -->
+      <script>
+        const roupas = [
+          ["Camiseta Branca", 1000],
+          ["Calça Jeans", 7500],
+          ["Vestido Estampado", 5500],
+          ["Blazer Masculino", 12000],
+          ["Saia Jeans", 4000],
+          ["Top Feminino", 2500],
+          ["Shorts Casual", 3000],
+          ["Camisa Social", 6000],
+          ["Moletom", 8000],
+          ["Conjunto Infantil", 5000]
+        ];
+        roupas.forEach((item, index) => {
+          document.write(`
+            <div class="produto">
+              <img src="https://via.placeholder.com/150x100?text=Roupa+${index+1}" alt="${item[0]}">
+              <p>${item[0]}</p>
+              <p>${item[1]} Kz</p>
+              <a class="botao-comprar" href="https://wa.me/244974928961?text=Olá!%20Quero%20comprar%20o%20produto:%20${encodeURIComponent(item[0])}" target="_blank">Comprar</a>
+            </div>
+          `);
+        });
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📱 Acessórios Eletrônicos</h2>
+    <div class="produtos">
+      <!-- Eletrônicos 1 a 10 -->
+      <script>
+        const acessorios = [
+          ["Fones Bluetooth", 7000],
+          ["Cabo USB-C", 1200],
+          ["Carregador Turbo", 3000],
+          ["Suporte de Telemóvel", 2500],
+          ["Power Bank", 9000],
+          ["Mouse Sem Fio", 4500],
+          ["Teclado Gamer", 11000],
+          ["Relógio Smart", 15000],
+          ["Caixa de Som", 8000],
+          ["Película Protetora", 1500]
+        ];
+        acessorios.forEach((item, index) => {
+          document.write(`
+            <div class="produto">
+              <img src="https://via.placeholder.com/150x100?text=Acessório+${index+1}" alt="${item[0]}">
+              <p>${item[0]}</p>
+              <p>${item[1]} Kz</p>
+              <a class="botao-comprar" href="https://wa.me/244974928961?text=Olá!%20Quero%20comprar%20o%20produto:%20${encodeURIComponent(item[0])}" target="_blank">Comprar</a>
+            </div>
+          `);
+        });
+      </script>
+    </div>
+  </div>
+
+  <footer>
+    💬 Atendimento via WhatsApp: 974928961<br>
+    &copy; 2025 AboutFace. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
