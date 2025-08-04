@@ -94,73 +94,103 @@
       padding: 10px;
       color: #777;
     }
-
-    /* Botão menu flutuante */
-    .menu-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      position: fixed;
-      top: 50px;
-      right: 15px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      display: none;
-      flex-direction: column;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-
-    .dropdown a {
-      padding: 10px;
-      text-decoration: none;
-      color: black;
-      border-bottom: 1px solid #eee;
-    }
-
-    .dropdown a:last-child {
-      border-bottom: none;
-    }
-
   </style>
 </head>
 <body>
 
   <header>🛍️ AboutFace - Loja Online</header>
 
-  <!-- Botão flutuante ⋮ -->
-  <button class="menu-btn" onclick="toggleMenu()">⋮</button>
-  <div class="dropdown" id="menuDropdown">
-    <a href="login.html">Fazer Login</a>
-    <a href="#">Ajuda</a>
-    <a href="#">Sobre</a>
-    <a href="#">Privacidade</a>
-  </div>
-
-  <!-- Cosméticos -->
   <div class="section">
     <h2>🧴 Cosméticos</h2>
-    <div class="produtos" id="cosmeticos"></div>
+    <div class="produtos">
+      <!-- Cosméticos 1 a 10 -->
+      <script>
+        const cosmeticos = [
+          ["Perfume Floral", 2500],
+          ["Creme Hidratante", 3200],
+          ["Sabonete Facial", 1500],
+          ["Óleo Corporal", 1800],
+          ["Máscara Facial", 2000],
+          ["Desodorante", 1300],
+          ["Gloss Labial", 1100],
+          ["Shampoo Herbal", 2700],
+          ["Condicionador", 2600],
+          ["Batom Vermelho", 3000]
+        ];
+        cosmeticos.forEach((item, index) => {
+          document.write(`
+            <div class="produto">
+              <img src="https://via.placeholder.com/150x100?text=Cosmético+${index+1}" alt="${item[0]}">
+              <p>${item[0]}</p>
+              <p>${item[1]} Kz</p>
+              <a class="botao-comprar" href="https://wa.me/244974928961?text=Olá!%20Quero%20comprar%20o%20produto:%20${encodeURIComponent(item[0])}" target="_blank">Comprar</a>
+            </div>
+          `);
+        });
+      </script>
+    </div>
   </div>
 
-  <!-- Vestuário -->
   <div class="section">
     <h2>👕 Vestuário</h2>
-    <div class="produtos" id="vestuario"></div>
+    <div class="produtos">
+      <!-- Vestuário 1 a 10 -->
+      <script>
+        const roupas = [
+          ["Camiseta Branca", 1000],
+          ["Calça Jeans", 7500],
+          ["Vestido Estampado", 5500],
+          ["Blazer Masculino", 12000],
+          ["Saia Jeans", 4000],
+          ["Top Feminino", 2500],
+          ["Shorts Casual", 3000],
+          ["Camisa Social", 6000],
+          ["Moletom", 8000],
+          ["Conjunto Infantil", 5000]
+        ];
+        roupas.forEach((item, index) => {
+          document.write(`
+            <div class="produto">
+              <img src="https://via.placeholder.com/150x100?text=Roupa+${index+1}" alt="${item[0]}">
+              <p>${item[0]}</p>
+              <p>${item[1]} Kz</p>
+              <a class="botao-comprar" href="https://wa.me/244974928961?text=Olá!%20Quero%20comprar%20o%20produto:%20${encodeURIComponent(item[0])}" target="_blank">Comprar</a>
+            </div>
+          `);
+        });
+      </script>
+    </div>
   </div>
 
-  <!-- Eletrônicos -->
   <div class="section">
     <h2>📱 Acessórios Eletrônicos</h2>
-    <div class="produtos" id="eletronicos"></div>
+    <div class="produtos">
+      <!-- Eletrônicos 1 a 10 -->
+      <script>
+        const acessorios = [
+          ["Fones Bluetooth", 7000],
+          ["Cabo USB-C", 1200],
+          ["Carregador Turbo", 3000],
+          ["Suporte de Telemóvel", 2500],
+          ["Power Bank", 9000],
+          ["Mouse Sem Fio", 4500],
+          ["Teclado Gamer", 11000],
+          ["Relógio Smart", 15000],
+          ["Caixa de Som", 8000],
+          ["Película Protetora", 1500]
+        ];
+        acessorios.forEach((item, index) => {
+          document.write(`
+            <div class="produto">
+              <img src="https://via.placeholder.com/150x100?text=Acessório+${index+1}" alt="${item[0]}">
+              <p>${item[0]}</p>
+              <p>${item[1]} Kz</p>
+              <a class="botao-comprar" href="https://wa.me/244974928961?text=Olá!%20Quero%20comprar%20o%20produto:%20${encodeURIComponent(item[0])}" target="_blank">Comprar</a>
+            </div>
+          `);
+        });
+      </script>
+    </div>
   </div>
 
   <footer>
@@ -168,81 +198,5 @@
     &copy; 2025 AboutFace. Todos os direitos reservados.
   </footer>
 
-  <script>
-    const logado = false; // Altere para true após login
-
-    function renderProdutos(lista, containerId, categoria) {
-      const container = document.getElementById(containerId);
-      lista.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.className = "produto";
-        div.innerHTML = `
-          <img src="https://via.placeholder.com/150x100?text=${encodeURIComponent(categoria)}+${index+1}" alt="${item[0]}">
-          <p>${item[0]}</p>
-          <p>${item[1]} Kz</p>
-          <button class="botao-comprar" onclick="comprarProduto('${item[0]}')">Comprar</button>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    function comprarProduto(nome) {
-      if (!logado) {
-        alert("Você precisa estar logado para comprar.");
-        window.location.href = "login.html";
-      } else {
-        window.open("https://wa.me/244974928961?text=Olá!%20Quero%20comprar%20o%20produto:%20" + encodeURIComponent(nome), "_blank");
-      }
-    }
-
-    function toggleMenu() {
-      const menu = document.getElementById("menuDropdown");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-    }
-
-    const cosmeticos = [
-      ["Perfume Floral", 2500],
-      ["Creme Hidratante", 3200],
-      ["Sabonete Facial", 1500],
-      ["Óleo Corporal", 1800],
-      ["Máscara Facial", 2000],
-      ["Desodorante", 1300],
-      ["Gloss Labial", 1100],
-      ["Shampoo Herbal", 2700],
-      ["Condicionador", 2600],
-      ["Batom Vermelho", 3000]
-    ];
-
-    const roupas = [
-      ["Camiseta Branca", 1000],
-      ["Calça Jeans", 7500],
-      ["Vestido Estampado", 5500],
-      ["Blazer Masculino", 12000],
-      ["Saia Jeans", 4000],
-      ["Top Feminino", 2500],
-      ["Shorts Casual", 3000],
-      ["Camisa Social", 6000],
-      ["Moletom", 8000],
-      ["Conjunto Infantil", 5000]
-    ];
-
-    const acessorios = [
-      ["Fones Bluetooth", 7000],
-      ["Cabo USB-C", 1200],
-      ["Carregador Turbo", 3000],
-      ["Suporte de Telemóvel", 2500],
-      ["Power Bank", 9000],
-      ["Mouse Sem Fio", 4500],
-      ["Teclado Gamer", 11000],
-      ["Relógio Smart", 15000],
-      ["Caixa de Som", 8000],
-      ["Película Protetora", 1500]
-    ];
-
-    renderProdutos(cosmeticos, "cosmeticos", "Cosmético");
-    renderProdutos(roupas, "vestuario", "Roupa");
-    renderProdutos(acessorios, "eletronicos", "Acessório");
-  </script>
-
 </body>
-  </html>
+</html>
